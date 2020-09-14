@@ -1,0 +1,903 @@
+// Sketch uses 41,720 out of 524,288 bytes (~7.96%)
+
+char readIn = -1;
+String aspect = "";
+String num = "";
+int Num = -1;
+int accept = 1;
+
+void setup() {
+  Serial.begin(9600);
+
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  pinMode(9, OUTPUT);
+  
+  pinMode(10, OUTPUT);
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
+}
+
+void loop() {
+  readIn = -1;
+  num = "";
+  if (accept == 1) {
+    Serial.print("Please type in aspect number: ");
+  } else {
+    accept = 1;
+  }
+  while (Serial.available() == 0) { }
+  while (Serial.available()) {
+    delay(5);
+    readIn = Serial.read();
+    num = num + readIn;
+  }
+  Num = num.toInt();
+  Serial.print(aspect + "\n");
+  selAspect();
+}
+
+void reset() {
+    digitalWrite(2, LOW);
+    digitalWrite(3, LOW);
+    digitalWrite(4, LOW);
+    digitalWrite(5, LOW);
+    digitalWrite(6, LOW);
+    digitalWrite(7, LOW);
+    digitalWrite(8, LOW);
+    digitalWrite(9, LOW);
+    digitalWrite(10, LOW);
+    digitalWrite(11, LOW);
+    digitalWrite(12, LOW);
+    digitalWrite(13, LOW);    
+}
+
+// Function used to call aspects - aspect functions take up 3,088 bytes (~0.59% or ~3.1 KB)
+void selAspect() {
+  reset();
+       if (Num == 1)    { n1(); }
+  else if (Num == 2)    { n2(); }
+  else if (Num == 3)    { n3(); }
+  else if (Num == 4)    { n4(); }
+  else if (Num == 5)    { n5(); }
+  else if (Num == 6)    { n6(); }
+  else if (Num == 7)    { n7(); }
+  else if (Num == 8)    { n8(); }
+  else if (Num == 9)    { n9(); }
+  else if (Num == 10)  { n10(); }
+  else if (Num == 11)  { n11(); }
+  else if (Num == 12)  { n12(); }
+  else if (Num == 13)  { n13(); }
+  else if (Num == 14)  { n14(); }
+  else if (Num == 15)  { n15(); }
+  else if (Num == 16)  { n16(); }
+  else if (Num == 17)  { n17(); }
+  else if (Num == 18)  { n18(); }
+  else if (Num == 19)  { n19(); }
+  else if (Num == 20)  { n20(); }
+  else if (Num == 21)  { n21(); }
+  else if (Num == 22)  { n22(); }
+  else if (Num == 23)  { n23(); }
+  else if (Num == 24)  { n24(); }
+  else if (Num == 25)  { n25(); }
+  else if (Num == 26)  { n26(); }
+  else if (Num == 27)  { n27(); }
+  else if (Num == 28)  { n28(); }
+  else if (Num == 29)  { n29(); }
+  else if (Num == 30)  { n30(); }
+  else if (Num == 31)  { n31(); }
+  else if (Num == 32)  { n32(); }
+  else if (Num == 33)  { n33(); }
+  else if (Num == 34)  { n34(); }
+  else if (Num == 35)  { n35(); }
+  else if (Num == 36)  { n36(); }
+  else if (Num == 37)  { n37(); }
+  else if (Num == 38)  { n38(); }
+  else if (Num == 39)  { n39(); }
+  else if (Num == 40)  { n40(); }
+  else if (Num == 41)  { n41(); }
+  else if (Num == 42)  { n42(); }
+  else if (Num == 43)  { n43(); }
+  else if (Num == 44)  { n44(); }
+  else if (Num == 45)  { n45(); }
+  else if (Num == 46)  { n46(); }
+  else if (Num == 47)  { n47(); }
+  else if (Num == 48)  { n48(); }
+  else if (Num == 49)  { n49(); }
+  else if (Num == 50)  { n50(); }
+  else if (Num == 51)  { n51(); }
+  else if (Num == 52)  { n52(); }
+  else if (Num == 53)  { n53(); }
+  else if (Num == 54)  { n54(); }
+  else if (Num == 55)  { n55(); }
+  else if (Num == 56)  { n56(); }
+  else if (Num == 57)  { n57(); }
+  else if (Num == 58)  { n58(); }
+  else if (Num == 59)  { n59(); }
+  else if (Num == 60)  { n60(); }
+  else if (Num == 61)  { n61(); }
+  else if (Num == 62)  { n62(); }
+  else if (Num == 63)  { n63(); }
+  else if (Num == 64)  { n64(); }
+  else if (Num == 65)  { n65(); }
+  else if (Num == 66)  { n66(); }
+  else if (Num == 67)  { n67(); }
+  else if (Num == 68)  { n68(); }
+  else if (Num == 69)  { n69(); }
+  else if (Num == 70)  { n70(); }
+  else if (Num == 71)  { n71(); }
+  else if (Num == 72)  { n72(); }
+  else if (Num == 73)  { n73(); }
+  else if (Num == 74)  { n74(); }
+  else if (Num == 75)  { n75(); }
+  else if (Num == 76)  { n76(); }
+  else if (Num == 77)  { n77(); }
+  else if (Num == 78)  { n78(); }
+  else if (Num == 79)  { n79(); }
+  else if (Num == 80)  { n80(); }
+  else {
+    Serial.print("\nInvalid Indication, try again.\n");
+  }
+}
+
+// @param heads - number of heads that will be lit
+// @param hiHead, mdHead, loHead - prints the color of the light
+// @param flash1, flash2 - tells the function what heads are flashing, if any
+void initHeads(int hiHead, int mdHead, int loHead, int flash1, int flash2) {
+  if (hiHead > 0) {
+    digitalWrite(hiHead, HIGH);
+  }
+  if (mdHead > 0) {
+    digitalWrite(mdHead, HIGH);
+  }
+  if (loHead > 0) {
+    digitalWrite(loHead, HIGH);
+  }
+  char Aspect[7];
+  for (int i = 0; i < 6; i++) {
+    Aspect[i] = aspect.charAt(i);
+  }
+  Aspect[6] = '\0';
+  char dispAspect[44];
+  char hiAsp[3] = " X"; // will be the default if an unrecognized number is detected, indicates head doesn't exist with this indication
+  char mdAsp[3] = " X";
+  char loAsp[3] = " X";
+  /* if (flash1 == 1 || flash2 == 1) {
+    hiAsp[0] = 'F';
+  } else if (hiHead != -1) { hiAsp[0] = ' '; }
+  if (flash1 == 2 || flash2 == 2) {
+    mdAsp[0] = 'F';
+  } else if (mdHead != -1) { mdAsp[0] = ' '; }
+  if (flash1 == 3 || flash2 == 3) {
+    loAsp[0] = 'F';
+  } else if (loHead != -1) { loAsp[0] = ' '; } */
+       if (hiHead == 2) { hiAsp[1] = 'G'; } 
+  else if (hiHead == 3) { hiAsp[1] = 'Y'; }
+  else if (hiHead == 4) { hiAsp[1] = 'R'; }
+  else if (hiHead == 5) { hiAsp[1] = 'L'; }
+  else if (hiHead == 0) { hiAsp[1] = 'D'; }
+  hiAsp[2] = '\0';
+       if (mdHead == 6) { mdAsp[1] = 'G'; }
+  else if (mdHead == 7) { mdAsp[1] = 'Y'; }
+  else if (mdHead == 8) { mdAsp[1] = 'R'; }
+  else if (mdHead == 9) { mdAsp[1] = 'L'; }
+  else if (mdHead == 0) { mdAsp[1] = 'D'; }
+  mdAsp[2] = '\0';
+       if (loHead == 10) { loAsp[1] = 'G'; }
+  else if (loHead == 11) { loAsp[1] = 'Y'; }
+  else if (loHead == 12) { loAsp[1] = 'R'; }
+  else if (loHead == 13) { loAsp[1] = 'L'; }
+  else if (loHead == 0)  { loAsp[1] = 'D'; }
+  loAsp[2] = '\0';
+  sprintf(dispAspect, "Currently displaying: %s: ◁-(%2s)-(%2s)-(%2s)-|\n\n", Aspect, hiAsp, mdAsp, loAsp);
+  Serial.print(dispAspect);
+  /*if (hiHead < 2 || hiHead > 5 || hiHead != -1 || mdHead < 6 || mdHead > 9 || mdHead != -1 || loHead < 10 || loHead > 13 || loHead != -1) {
+    Serial.print("Invalid number detected. Please inform programmer.\n");
+  }*/
+}
+
+// @param hiHead - Color for top head (#1)
+// @param mdHead - Color for mid head (#2)
+// @param loHead - Color for low head (#3)
+void light(int hiHead, int mdHead, int loHead) {
+  initHeads(hiHead, mdHead, loHead, 0, 0);
+}
+
+void blink(int hiHead, int mdHead, int loHead, const int pos) {
+  accept = 0;
+  //Serial.print(pos);
+  //initHeads(hiHead, mdHead, loHead, pos, 0);
+  digitalWrite(hiHead, HIGH);
+  digitalWrite(mdHead, HIGH);
+  digitalWrite(loHead, HIGH);
+  Serial.print("Please type in aspect abbreviation (i.e. Green-Red-Red will be GRR): ");
+  //Serial.print(pos);
+  while (Serial.available() == 0) {
+    if (pos == 3) {
+      digitalWrite(loHead, LOW);
+      delay(1000);
+      digitalWrite(loHead, HIGH);
+      delay(1000);
+    }
+    if (pos == 2) {
+      digitalWrite(mdHead, LOW);
+      delay(1000);
+      digitalWrite(mdHead, HIGH);
+      delay(1000);
+    }
+    if (pos == 1) {
+      digitalWrite(hiHead, LOW);
+      delay(1000);
+      digitalWrite(hiHead, HIGH);
+      delay(1000);
+    }
+  }
+}
+
+/* Only works when 2 & 3 or 1 & 2 are paired
+@param hiHead - Top (#1)
+@param mdHead - Mid (#2)
+@param loHead - Low (#3)
+*/
+void mblink(int hiHead, int mdHead, int loHead, int hdOne, int hdTwo) {
+  //initHeads(hiHead, mdHead, loHead, hdOne, hdTwo);
+  accept = 0;
+  digitalWrite(hiHead, HIGH);
+  digitalWrite(mdHead, HIGH);
+  digitalWrite(loHead, HIGH);
+  Serial.print("Please type in aspect abbreviation (i.e. Green-Red-Red will be GRR): ");
+  while (Serial.available() == 0) {
+    if ((hdOne == 3 && hdTwo == 2) || (hdOne == 2 && hdTwo == 3)) {
+      digitalWrite(loHead, LOW);
+      digitalWrite(mdHead, LOW);
+      delay(1000);
+      digitalWrite(mdHead, HIGH);
+      digitalWrite(loHead, HIGH);
+      delay(1000);
+    } else if ((hdOne == 1 && hdTwo == 2) || (hdOne == 2 && hdTwo == 1)) {
+      digitalWrite(hiHead, LOW);
+      digitalWrite(mdHead, LOW);
+      delay(1000);
+      digitalWrite(mdHead, HIGH);
+      digitalWrite(hiHead, HIGH);
+      delay(1000);
+    }
+  }
+}
+
+// Aspect designations are listed below
+
+/* Pin-out Reference:
+-HEAD 1-|-HEAD  2-|---HEAD 3---
+G Y R L | G Y R L | GG YY RR LL
+2 3 4 5 | 6 7 8 9 | 10 11 12 13
+*/
+
+void n1() { // GREEN_RED_RED - 3-HEAD
+  aspect = "GRR";
+  light(2, 8, 12);
+}
+
+void n2() { // GREEN_RED - 2-HEAD
+  aspect = "GR";
+  light(2, 8, -1);
+}
+
+void n3() { // GREEN - 1-HEAD
+  aspect = "G";
+  light(2, -1, -1);
+}
+
+void n4() { // GREEN_GREEN - 2-HEAD
+  aspect = "GG";
+  light(2, 6, -1);
+}
+
+void n5() { // RED_GREEN_RED - 3-HEAD
+  aspect = "RGR";
+  light(4, 6, 12);
+}
+
+void n6() { // RED_GREEN - 2-HEAD
+  aspect = "RG";
+  light(4, 6, -1);
+}
+
+void n7() { // YELLOW_RED_RED - 3-HEAD
+  aspect = "YRR";
+  light(3, 8, 12);
+}
+
+void n8() { // YELLOW_RED - 2-HEAD
+  aspect = "YR";
+  light(3, 8, -1);
+}
+
+void n9() { // YELLOW - 1-HEAD
+  aspect = "Y";
+  light(3, -1, -1);
+}
+
+void n10() { // RED_RED_RED - 3-HEAD
+  aspect = "RRR";
+  light(4, 8, 12);
+}
+
+void n11() { // RED_RED - 2-HEAD
+  aspect = "RR";
+  light(4, 8, -1);
+}
+
+void n12() { // RED - 1-HEAD
+  aspect = "R";
+  light(4, -1, -1);  
+}
+
+void n13() { // YELLOW_FGREEN_RED - 3-HEAD
+  aspect = "YFGR";
+  blink(3, 6, 12, 2);
+}
+
+void n14() { // YELLOW-FGREEN - 2-HEAD
+  aspect = "YFG";
+  blink(3, 6, -1, 2);
+}
+
+void n15() { // RED_FGREEN_RED - 3-HEAD
+  aspect = "RFGR";
+  blink(4, 6, 12, 2);
+}
+
+void n16() { // RED_FGREEN - 2-HEAD
+  aspect = "RFG";
+  blink(4, 6, -1, 2);
+}
+
+void n17() { // RED_FYELLOW_RED - 3-HEAD
+  aspect = "RFYR";
+  blink(4, 7, 12, 2);
+}
+
+void n18() { // RED_FYELLOW - 2-HEAD
+  aspect = "RFY";
+  blink(4, 7, -1, 2);
+}
+
+void n19() { // YELLOW_GREEN_RED - 3-HEAD
+  aspect = "YGR";
+  light(3, 6, 12);
+}
+
+void n20() { // YELLOW_GREEN - 2-HEAD
+  aspect = "YG";
+  light(3, 6, -1);
+}
+
+void n21() { // YELLOW_YELLOW_RED - 3-HEAD
+  aspect = "YYR";
+  light(3, 7, 12);
+}
+
+void n22() { // YELLOW_YELLOW - 2-HEAD
+  aspect = "YY";
+  light(3, 7, -1);
+}
+
+void n23() { // RED_YELLOW_FGREEN - 3-HEAD
+  aspect = "RYFG";
+  blink(4, 7, 10, 3);
+}
+
+void n24() { // RED_YELLOW_GREEN - 3-HEAD
+  aspect = "RYG";
+  light(4, 7, 10);
+}
+
+void n25() { // RED_YELLOW_YELLOW - 3-HEAD
+  aspect = "RYY";
+  light(4, 7, 11);
+}
+
+void n26() { // YELLOW_RED_GREEN - 3-HEAD
+   aspect = "YRG";
+  light(3, 8, 10);
+}
+
+void n27() { // FYELLOW - 1-HEAD
+  aspect = "FY";
+  blink(3, 0, 0, 1);
+}
+
+void n28() { // RED_YELLOW_RED - 3-HEAD
+  aspect = "RYR";
+  light(4, 7, 12);
+}
+
+void n29() { // RED_YELLOW - 2-HEAD
+  aspect = "RY";
+  light(4, 7, -1);
+}
+
+void n30() { // RED_RED_GREEN - 3-HEAD
+  aspect = "RRG";
+  light(4, 8, 10);
+}
+
+void n31() { // RED_RED_YELLOW - 3-HEAD
+  aspect = "RRY";
+  light(4, 8, 11);
+}
+
+void n32() { // RED_RED_LUNAR - 3-HEAD
+  aspect = "RRL";
+  light(4, 8, 13);
+}
+
+void n33() { // LUNAR_RED_RED - 3-HEAD
+  aspect = "LRR";
+  light(5, 8, 12);
+}
+
+void n34() { // RED_LUNAR_RED - 3-HEAD
+  aspect = "RLR";
+  light(4, 9, 12);
+}
+
+void n35() { // LUNAR_RED - 2-HEAD
+  aspect = "LR";
+  light(5, 8, -1);
+}
+
+void n36() { // RED_LUNAR - 2-HEAD
+  aspect = "RL";
+  light(4, 9, -1);
+}
+
+void n37() { // LUNAR - 1-HEAD
+  aspect = "L";
+  light(5, -1, -1);
+}
+
+void n38() { // RED_DARK - 2-HEAD
+  aspect = "RD";
+  light(4, 0, -1);
+}
+
+void n39() { // RED_RED_DARK - 3-HEAD
+  aspect = "RRD";
+  light(4, 8, 0);
+}
+
+void n40() { // RED_YELLOW_DARK - 3-HEAD
+  aspect = "RYD";
+  light(4, 7, 0);
+}
+
+void n41() { // GREEN_RED_DARK - 3-HEAD
+  aspect = "GRD";
+  light(2, 8, 0);
+}
+
+void n42() { // GREEN_DARK - 2-HEAD
+  aspect = "GD";
+  light(2, 0, -1);
+}
+
+void n43() { // YELLOW_FRED - 2-HEAD
+  aspect = "YFR";
+  blink(3, 8, -1, 2);
+}
+
+void n44() { // RED_RED_FYELLOW
+  aspect = "RRFY";
+  blink(4, 8, 7, 3);
+}
+
+void n45() { // YELLOW_DARK - 2-HEAD
+  aspect = "YD";
+  light(3, 0, -1);
+}
+
+void n46() { // YELLOW_YELLOW_DARK - 3-HEAD
+  aspect = "YYD";
+  light(3, 7, 0);
+}
+
+void n47() { // YELLOW_FGREEN_DARK - 3-HEAD
+  aspect = "YFGD";
+  blink(3, 6, 0, 2);
+}
+
+void n48() { // GREEN_YELLOW_RED - 3-HEAD
+  aspect = "GYR";
+  light(2, 7, 12);
+}
+
+void n49() { // GREEN_YELLOW - 2-HEAD
+  aspect = "GY";
+  light(2, 7, -1);
+}
+
+void n50() { // GREEN_FYELLOW - 2-HEAD
+  aspect = "GFY";
+  blink(2, 7, -1, 2);
+}
+
+void n51() { // FGREEN - 1-HEAD
+  aspect = "FG";
+  blink(2, -1, -1, 1);
+}
+
+void n52() { // GREEN_GREEN_RED - 3-HEAD
+  aspect = "GGR";
+  light(2, 6, 12);
+}
+
+void n53() { // FGREEN_RED_RED - 3-HEAD
+  aspect = "FGRR";
+  blink(2, 8, 12, 1);
+}
+
+void n54() { // FGREEN_RED - 2-HEAD
+  aspect = "FGR";
+  blink(2, 8, -1, 1);
+}
+
+void n55() { // FYELLOW_RED_RED - 3-HEAD
+  aspect = "FYRR";
+  blink(3, 8, 12, 1);
+}
+
+void n56() { // FYELLOW_RED - 2-HEAD
+  aspect = "FYR";
+  blink(3, 8, -1, 1);
+}
+
+void n57() { // FYELLOW_DARK - 2-HEAD
+  aspect = "FYD";
+  blink(3, 0, -1, 1);
+}
+
+void n58() { // FYELLOW_RED_DARK - 3-HEAD
+  aspect = "FYRD";
+  blink(3, 8, 0, 1);
+}
+
+void n59() { // FYELLOW_DARK_RED - 3-HEAD
+  aspect = "FYDR";
+  blink(3, 0, 12, 1);
+}
+
+void n60() { // FYELLOW_DARK_DARK - 3-HEAD
+  aspect = "FYDD";
+  blink(3, 0, 0, 1);
+}
+
+void n61() { // GREEN_FRED - 2-HEAD
+  aspect = "GFR";
+  blink(2, 8, -1, 2);
+}
+
+void n62() { // GREEN_DARK_DARK - 3-HEAD
+  aspect = "GDD";
+  light(2, 0, 0);
+}
+
+void n63() { // GREEN_DARK_RED - 3-HEAD
+  aspect = "GDR";
+  light(2, 0, 12);
+}
+
+void n64() { // RED_FGREEN_DARK - 3-HEAD
+  aspect = "RFGD";
+  blink(4, 6, 0, 2);
+}
+
+void n65() { // RED_FGREEN_FGREEN - 3-HEAD
+  aspect = "RFGFG";
+  mblink(4, 6, 10, 2, 3);
+}
+
+void n66() { // RED_FGREEN_GREEN - 3-HEAD
+  aspect = "RFGG";
+  blink(4, 6, 10, 2);
+}
+
+void n67() { // RED_FGREEN_FYELLOW - 3-HEAD
+  aspect = "RFGFY";
+  mblink(4, 6, 11, 2, 3);
+}
+
+void n68() { // RED_FYELLOW_YELLOW - 3-HEAD
+  aspect = "RFYY";
+  blink(4, 7, 11, 2);
+}
+
+void n69() { // DARK_YELLOW_RED - 3-HEAD
+  aspect = "DYR";
+  light(0, 7, 12);
+}
+
+void n70() { // RED_FYELLOW_FYELLOW - 3-HEAD
+  aspect = "RFYFY";
+  mblink(4, 7, 11, 2, 3);
+}
+
+void n71() { // RED_FYELLOW_DARK - 3-HEAD
+  aspect = "RFYD";
+  blink(4, 7, 0, 2);
+}
+
+void n72() { // RED_FYELLOW_FRED - 3-HEAD
+  aspect = "RFYFR";
+  mblink(4, 7, 12, 2, 3);
+}
+
+void n73() { // RED_FYELLOW_FGREEN - 3-HEAD
+  aspect = "RFYFG";
+  mblink(4, 7, 10, 2, 3);
+}
+
+void n74() { // RED_FYELLOW_GREEN - 3-HEAD
+  aspect = "RFYG";
+  blink(4, 7, 10, 2);
+}
+
+void n75() { // RED_RED_GREEN - 3-HEAD
+  aspect = "RRG";
+  light(4, 8, 10);
+}
+
+void n76() { // RED_RED_FGREEN - 3-HEAD
+  aspect = "RRFG";
+  blink(4, 8, 10, 3);
+}
+
+void n77() { // RED_RED_FRED - 3-HEAD
+  aspect = "RRFR";
+  blink(4, 8, 12, 2);
+}
+
+void n78() { // RED_FRED - 2-HEAD
+  aspect = "RFR";
+  blink(4, 8, -1, 2);
+}
+
+
+void n79() { // FRED - 1-HEAD
+  aspect = "FR";
+  blink(4, -1, -1, 1);
+}
+
+void n80() { // YELLOW_GREEN_DARK - 3-HEAD
+  aspect = "YGD";
+  light(3, 6, 0);
+}
+
+void n81() { // ASPECT 81
+  
+}
+
+void n82() { // ASPECT 82
+  
+}
+
+void n83() { // ASPECT 83
+  
+}
+
+void n84() { // ASPECT 84
+  
+}
+
+void n85() { // ASPECT 85
+  
+}
+
+void n86() { // ASPECT 86
+  
+}
+
+void n87() { // ASPECT 87
+  
+}
+
+void n88() { // ASPECT 88
+  
+}
+
+void n89() { // ASPECT 89
+  
+}
+
+void n90() { // ASPECT 90
+  
+}
+
+void n91() { // ASPECT 91
+  
+}
+
+void n92() { // ASPECT 92
+  
+}
+
+void n93() { // ASPECT 93
+  
+}
+
+void n94() { // ASPECT 94
+  
+}
+
+void n95() { // ASPECT 95
+  
+}
+
+void n96() { // ASPECT 96
+  
+}
+
+void n97() { // ASPECT 97
+  
+}
+
+void n98() { // ASPECT 98
+  
+}
+
+void n99() { // ASPECT 99
+  
+}
+
+void n100() { // ASPECT 100
+  
+}
+
+void n101() { // ASPECT 101
+  
+}
+
+void n102() { // ASPECT 102
+  
+}
+
+void n103() { // ASPECT 103
+  
+}
+
+void n104() { // ASPECT 104
+  
+}
+
+void n105() { // ASPECT 105
+  
+}
+
+void n106() { // ASPECT 106
+  
+}
+
+void n107() { // ASPECT 107
+  
+}
+
+void n108() { // ASPECT 108
+  
+}
+
+void n109() { // ASPECT 109
+  
+}
+
+void n110() { // ASPECT 110
+  
+}
+
+void n111() { // ASPECT 111
+  
+}
+
+void n112() { // ASPECT 112
+  
+}
+
+void n113() { // ASPECT 113
+  
+}
+
+void n114() { // ASPECT 114
+  
+}
+
+void n115() { // ASPECT 115
+  
+}
+
+void n116() { // ASPECT 116
+  
+}
+
+void n117() { // ASPECT 117
+  
+}
+
+void n118() { // ASPECT 118
+  
+}
+
+void n119() { // ASPECT 119
+  
+}
+
+void n120() { // ASPECT 120
+  
+}
+
+void n121() { // ASPECT 121
+  
+}
+
+void n122() { // ASPECT 122
+  
+}
+
+void n123() { // ASPECT 123
+  
+}
+
+void n124() { // ASPECT 124
+  
+}
+
+void n125() { // ASPECT 125
+  
+}
+
+void n126() { // ASPECT 126
+  
+}
+
+void n127() { // ASPECT 127
+  
+}
+
+void n128() { // ASPECT 128
+  
+}
+
+void n129() { // ASPECT 129
+  
+}
+
+void n130() { // ASPECT 130
+  
+}
+
+void n131() { // ASPECT 131
+  
+}
+
+void n132() { // ASPECT 132
+  
+}
+
+void n133() { // ASPECT 133
+  
+}
+
+void n134() { // ASPECT 134
+  
+}
+
+void n135() { // ASPECT 135
+  
+}
+
